@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+
+{% block main_content_block %}
+    <h1>
+        File Format Error
+    </h1>
+    <p>
+        The uploaded file '{{ file }}' is not a valid
+        <a href="http://en.wikipedia.org/wiki/Gzip">GZip</a>
+        file.
+    </p>
+{% endblock %}

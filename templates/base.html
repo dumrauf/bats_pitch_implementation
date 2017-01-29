@@ -1,0 +1,179 @@
+{% load staticfiles %}
+
+
+<!DOCTYPE html>
+
+
+
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>BATS Web</title>
+        <meta name="description" content="">
+
+        
+
+        
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" type="text/css" href="{%  static 'bats_pitch_web/css/ext-theme-gray-all.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{%  static 'bats_pitch_web/css/eb54b7cbfcc8c9b53e620068dbbc1af8.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{%  static 'bats_pitch_web/css/bats_pitch_web.css' %}" />
+
+        
+        <link rel="stylesheet" type="text/css" href="{% static 'bats_pitch_web/css/415ea2b5f0d766b750bb0b304964264d.css' %}" />
+
+
+
+        
+        <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+        <script>
+          WebFont.load({
+            google: {
+              families: ['Lato:normal', 'Lato:bold', 'Cabin:normal', 'Cabin:semi-bold', 'Cabin:bold', 'Cabin:400italic']
+            }
+          });
+        </script>
+        
+
+
+        
+        <!--[if lt IE 9]>
+            <script type="text/javascript">
+                document.createElement('article');
+                document.createElement('aside');
+                document.createElement('details');
+                document.createElement('figcaption');
+                document.createElement('figure');
+                document.createElement('footer');
+                document.createElement('header');
+                document.createElement('hgrup');
+                document.createElement('mai');
+                document.createElement('main');
+                document.createElement('nav');
+                document.createElement('section');
+                document.createElement('summary');
+                document.createElement('audio');
+                document.createElement('canvas');
+                document.createElement('video');
+            </script>
+        <![endif]-->
+
+
+
+    </head>
+
+    <body class=" page--home">
+        <header class="cf line size960--min" id="site--header">
+            <div class="size960 site--section">
+                <div class="line vrz0">
+                    <div class="unit size1of3 vrz0">
+                        <a href="{% url 'upload' %}" tabindex="1">
+
+                            <!--[if gte IE 7]>
+                                <img class="logo--bats" src="{% static "bats_pitch_web/img/bats_196_x_72_alpha.png" %}" alt="BATS" height="84" width="228">
+                            <![endif]-->
+                            <!--[if lt IE 7]>
+                                <img class="logo--bats" src="{% static "bats_pitch_web/img/bats_196_x_72_alpha.png" %}" alt="BATS">
+                            <![endif]-->
+
+                            <![if !IE]>
+                                <img class="logo--bats" src="{% static "bats_pitch_web/img/bats_196_x_72_alpha.png" %}" alt="BATS" height="72" width="196">
+                            <![endif]>
+                        </a>
+                    </div>
+                    <div class="unit--right main-login">
+                        <ul>
+                            <li class="nav--login-dropdown"><button class="btn btn--login-link btn--login-link caps">Login</button>
+                                <ul class="nav--login-list">
+                                    <li><a href="https://www.batstrading.com/account/login/" target="_blank">U.S. Login</a></li>
+                                    <li><a href="https://www.batstrading.co.uk/account/login/" target="_blank">Europe Login</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <nav class="unit size1of1 nav nav--main">
+                    <ul class="" id="js-hover-show-main-nav">
+                        <a href="{% url 'upload' %}">BATS PITCH Implementation</a>
+                    </ul>
+                </nav>
+
+            </div>
+
+        </header>
+
+
+
+        <section class="size960--min" id="site--main">
+            <div class="site--section size960 ">
+        {% block main_content_block %}
+        {% endblock %}
+
+                
+    
+
+
+    
+
+
+            </div>
+        </section>
+
+        <footer class="size960--min">
+            <div class="site--section size960" id="site--footer">
+                <div class="site--section__footer">
+                    </div>
+                    <div class="nav--footer">
+                        <nav class="nav nav--justify">
+                            <ul class="mbn">
+                                <li class="nav--footer__item"><a href="http://bats.com/our_company/about/">Our Company</a></li>
+                                <li class="nav--footer__item"><a href="http://bats.com/us/equities/">U.S. Equities</a></li>
+                                <li class="nav--footer__item"><a href="http://bats.com/europe/equities/">European Equities</a></li>
+                                <li class="nav--footer__item"><a href="http://bats.com/us/options/">U.S. Options</a></li>
+                                <li class="nav--footer__item"><a href="http://bats.com/newsroom/press_releases/">Newsroom</a></li>
+                                <li class="nav--footer__item"><a href="http://bats.com/resource/investor_education/">Investor Education</a></li>
+                                <li class="nav--footer__item"><a href="http://bats.com/our_company/careers/">Careers</a></li>
+                                <li class="nav--footer__item"><a href="http://bats.com/contact/">Contact</a></li>
+                                <li class="nav--footer__item"><a href="">Login</a></li>
+                            </ul>
+                            <span class="nav--justify__break"></span>
+                        </nav>
+                    </div>
+                    <!--<div class="line">
+                        <div class="unit size1of2">
+                            <ul class="nav nav--terms mbs milli">
+                                <li>U.S.</li>
+                                <li><a href="http://www.finra.org/" target="_blank">Member FINRA</a></li>
+                                <li><a href="http://www.sipc.org/" target="_blank">SIPC</a></li>
+                                <li><a href="http://bats.com/privacy/us/">Privacy Statement</a></li>
+                            </ul>
+                            <ul class="nav nav--terms milli mbs">
+                                <li>U.K.</li>
+                                <li><a href="http://bats.com/terms/">Terms of Service</a></li>
+                                <li><a href="http://bats.com/privacy/europe/">Privacy &amp; Cookies Policy</a></li>
+                            </ul>
+                        </div>-->
+                        <div class="site--section__footer__rights">
+                            <ul class="nav nav--piped">
+                                <li>&copy; 2015 BATS Global Markets, Inc. - All Rights Reserved</li>
+                                <li><a href="http://bats.com/terms/">Terms of Use</a></li>
+                                <li><a href="http://bats.com/content_agreement/">Content Agreement</a></li>
+                                <li class="prn"><a href="http://bats.com/privacy/">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    <!--</div>
+                    <p class="micro weight--normal" style="margin-left: 32px;">BATS Trading Limited is a Recognised Investment Exchange regulated by the Financial Conduct Authority. BATS Trading Limited is an indirect wholly-owned subsidiary of BATS Global Markets, Inc. and is a company registered in England and Wales with Company Number 6547680 and registered office at 10 Lower Thames Street, London EC3R 6AF. This Website has been established for information purposes only. None of the information concerning the services or products described on this Website constitutes advice or a recommendation of any product or service. To the extent that the information provided on this Website constitutes a financial promotion as defined by section 21 of the Financial Services and Markets Act 2000, it is only directed at persons who qualify as a Professional Client or Eligible Counterparty. Persons who do not qualify should not act on or rely upon it. </p>
+                </div>-->
+            </div>
+        </footer>
+        <div class="js-remove line-height-guide line-height-guide--12-24px"></div>
+
+
+    </body>
+
+</html>

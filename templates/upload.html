@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+
+{% block main_content_block %}
+    <p>
+        Please select a
+        <a href="http://en.wikipedia.org/wiki/Gzip">GZip</a>
+        file to upload.
+    </p>
+
+    <p>
+        The uploaded file will eventually be analyzed for messages that are specified in the
+        <a href="{% static 'bats_web/other/BATS_PITCH_Specification.pdf' %}"
+                >BATS PITCH protocol</a>.
+        This also analysis includes a summary of the number of different messages types detected in the uploaded file.
+    </p>
+
+    <form action="{% url 'upload' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>{{ form.non_field_errors }}</p>
+        <p>{{ form.file.label_tag }} {{ form.file.help_text }}</p>
+        <p>
+            {{ form.file.errors }}
+            {{ form.file }}
+        </p>
+        <p><input type="submit" value="Upload and Analyze" /></p>
+
+        <p>
+            Note:
+            Processing your file may take some time.
+            Please do not click the button again after submitting this form.
+        </p>
+    </form>
+{% endblock %}

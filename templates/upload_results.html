@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+
+{% block main_content_block %}
+
+    <h1>Message Count</h1>
+
+    <p>
+        This section gives an overview of the different message types detected in the uploaded {{ analysis|length }} lines file '{{ file }}'.
+    </p>
+
+    <table>
+        <tr>
+            <th>BATS Message Type</th>
+            <th class="text_align_right">Total</th>
+        </tr>
+
+        {% for message_type, count in detected_messages.items %}
+            <tr>
+                <td>{{ message_type }}</td>
+                <td class="text_align_right">{{ count }}</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+
+    <h1>Analysis</h1>
+
+    {% if IS_INCLUDING_ANALYSIS_IN_RETURNED_HTML %}
+
+        <p>
+            This section lists the contents of the uploaded file '{{ file }}' along with the read
+            input, the cleaned input, and the detected message type.
+        </p>
+
+        <p>
+            Please note that this section can be disabled in 'settings.py' in case the file gets too big.
+            A future enhancement would allow to disable this in the upload form.
+        </p>
+
+        <table>
+            <tr>
+                <th>Line Number</th>
+                <th>Raw Input Line</th>
+                <th>Cleaned Input Line</th>
+                <th>Detected BATS Message Type</th>
+            </tr>
+
+            {% for line in analysis %}
+                <tr>
+                    <td class="text_align_right">{{ line.line_nr }}</td>
+                    <td><pre>{{ line.raw_line }}</pre></td>
+                    <td><pre>{{ line.clean_line }}</pre></td>
+                    <td>{{ line.detected_messages_type.name }}</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+
+    {% else %}
+        <p>
+            Please note that there is an additional analysis section that can be enabled in 'settings.py'.
+            A future enhancement would allow to enable this in the upload form.
+        </p>
+    {% endif %}
+
+{% endblock %}
